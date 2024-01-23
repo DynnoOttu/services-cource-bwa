@@ -12,4 +12,9 @@ class Review extends Model
     protected $fillable = [
         'user_id', 'course_id', 'ratig', 'note'
     ];
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
 }

@@ -9,7 +9,12 @@ class Mentor extends Model
 {
     protected $table = 'mentors';
 
+    protected $cats = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'update' => 'datetime:Y-m-d H:m:s',
+    ];
+
     protected $fillable = [
-        'name', 'profile', 'email', 'professin',
+        'name', 'profile', 'email', 'profession',
     ];
 }

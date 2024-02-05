@@ -14,8 +14,24 @@ class Course extends Model
         'price', 'level', 'description', 'mentor_id'
     ];
 
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'updated_at' => 'datetime:Y-m-d H:m:s'
+    ];
+
     public function mentor()
     {
-        // retunr $this->belongsTo('App\Mentor');
+        return $this->belongsTo('App\Models\Mentor');
+    }
+
+    public function chapters()
+    {
+        return $this->hasMany('App\Models\Chapter')->orderBy('id', 'ASC');
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\Models\ImageCourse')->orderBy('id', 'DESC');
     }
 }

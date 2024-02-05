@@ -25,3 +25,4 @@ Route::delete('mentors/{id}', [MentorController::class, 'destroy']);
 
 // API Courses
 Route::post('courses', [CourseController::class, 'create']);
+Route::put('courses/{id}', [CourseController::class, 'update']);

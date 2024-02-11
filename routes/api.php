@@ -40,3 +40,4 @@ Route::delete('chapters/{id}', [ChapterController::class, 'destroy']);
 
 // Lesson
 Route::post('lessons', [LessonCntroller::class, 'create']);
+Route::put('lessons/{id}', [LessonCntroller::class, 'update']);

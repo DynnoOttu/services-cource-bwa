@@ -39,5 +39,7 @@ Route::get('chapters/{id}', [ChapterController::class, 'show']);
 Route::delete('chapters/{id}', [ChapterController::class, 'destroy']);
 
 // Lesson
+Route::get('lessons', [LessonCntroller::class, 'index']);
+Route::get('lessons/{id}', [LessonCntroller::class, 'show']);
 Route::post('lessons', [LessonCntroller::class, 'create']);
 Route::put('lessons/{id}', [LessonCntroller::class, 'update']);

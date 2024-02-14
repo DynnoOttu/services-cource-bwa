@@ -43,3 +43,4 @@ Route::get('lessons', [LessonCntroller::class, 'index']);
 Route::get('lessons/{id}', [LessonCntroller::class, 'show']);
 Route::post('lessons', [LessonCntroller::class, 'create']);
 Route::put('lessons/{id}', [LessonCntroller::class, 'update']);
+Route::delete('lessons/{id}', [LessonCntroller::class, 'destroy']);

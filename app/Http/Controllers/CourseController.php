@@ -13,6 +13,8 @@ class CourseController extends Controller
 {
     public function index(Request $request)
     {
+        test();
+
         $courses = Course::query();
 
         $q = $request->query('q');

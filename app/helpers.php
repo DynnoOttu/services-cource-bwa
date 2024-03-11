@@ -20,11 +20,12 @@ function getUser($userId)
     }
 }
 
-function getUserById($userId = [])
+function getUserByIds($userIds = [])
 {
     $url = env('SERVICE_USER_URL') . 'users/';
+
     try {
-        if (count($userId) === 0) {
+        if (count($userIds) === 0) {
             return [
                 'status' => 'success',
                 'http_code' => 200,
@@ -32,9 +33,7 @@ function getUserById($userId = [])
             ];
         }
 
-        $response = Http::timeout(10)->get($url, [
-            'user_id' => $userId
-        ]);
+        $response = Http::timeout(10)->get($url, ['user_ids[]' => $userIds]);
         $data = $response->json();
         $data['http_code'] = $response->getStatusCode();
         return $data;
@@ -43,6 +42,23 @@ function getUserById($userId = [])
             'status' => 'error',
             'http_code' => 500,
             'message' => 'service user unavailable'
+        ];
+    }
+}
+
+function postOrder($params)
+{
+    $url = env('SERVICE_ORDER_PAYMENT_URL') . 'api/orders';
+    try {
+        $response = Http::post($url, $params);
+        $data = $response->json();
+        $data['http_code'] = $response->getStatusCode();
+        return $data;
+    } catch (\Throwable $th) {
+        return [
+            'status' => 'error',
+            'http_code' => 500,
+            'message' => 'service order payment unavailable'
         ];
     }
 }

@@ -5,6 +5,8 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ImageCourseController;
 use App\Http\Controllers\LessonCntroller;
 use App\Http\Controllers\MentorController;
+use App\Http\Controllers\MyCourseController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +51,10 @@ Route::delete('lessons/{id}', [LessonCntroller::class, 'destroy']);
 // imageCourse
 Route::post('image-courses', [ImageCourseController::class, 'create']);
 Route::delete('image-courses/{id}', [ImageCourseController::class, 'destroy']);
+
+// my courses
+Route::post('my-courses', [MyCourseController::class, 'create']);
+Route::get('my-courses', [MyCourseController::class, 'index']);
+
+// Review
+Route::post('reviews', [ReviewController::class, 'create']);
